@@ -4,84 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Showcase</title>
-</head>
-<body>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #007bff;
-    color: white;
-}
-
-select, button {
-    padding: 8px;
-    margin: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    border-radius: 5px;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.product-card {
-    background: white;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 250px;
-}
-
-.product-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.hidden {
-    display: none;
-}
-
-#cart-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
-
-#cart-items {
-    list-style: none;
-    padding: 0;
-}
-
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+        }
+        
+        select, button {
+            padding: 8px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button {
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+        
+        .product-card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #cart-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .delete-btn {
+            background: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
-
+</head>
+<body>
     <header>
         <h1>My Store</h1>
         <div>
@@ -104,87 +111,87 @@ main {
         <div class="cart-content">
             <h2>Shopping Cart</h2>
             <ul id="cart-items"></ul>
-            <p>Total: $<span id="cart-total">0.00</span></p>
+            <p>Total: ₹<span id="cart-total">0.00</span></p>
             <button id="close-cart">Close</button>
         </div>
     </div>
 
     <script>
         const products = [
-    { id: 1, name: "T-shirt", category: "clothing", price: 19.99, image: "https://via.placeholder.com/150" },
-    { id: 2, name: "Smartphone", category: "electronics", price: 499.99, image: "https://via.placeholder.com/150" },
-    { id: 3, name: "Watch", category: "accessories", price: 79.99, image: "https://via.placeholder.com/150" },
-    { id: 4, name: "Jeans", category: "clothing", price: 39.99, image: "https://via.placeholder.com/150" },
-    { id: 5, name: "Headphones", category: "electronics", price: 99.99, image: "https://via.placeholder.com/150" }
-];
+            { id: 1, name: "T-shirt", category: "clothing", price: 499, image: "https://m.media-amazon.com/images/I/61ThK8RnMjL._AC_UL480_FMwebp_QL65_.jpg" },
+            { id: 2, name: "Smartphone", category: "electronics", price: 114999, image: "https://m.media-amazon.com/images/I/61giwQtR1qL._AC_UY327_FMwebp_QL65_.jpg" },
+            { id: 3, name: "Watch", category: "accessories", price: 1999, image: "https://m.media-amazon.com/images/I/81u1EddMdrL._AC_UL480_FMwebp_QL65_.jpg" },
+            { id: 4, name: "Jeans", category: "clothing", price: 1199, image: "https://m.media-amazon.com/images/I/81kt3gV6RAL._AC_UL480_FMwebp_QL65_.jpg" },
+            { id: 5, name: "Headphones", category: "electronics", price: 2499, image: "https://m.media-amazon.com/images/I/51Tf2zsMODL._AC_UY327_FMwebp_QL65_.jpg" }, 
+            { id: 6, name: "T-shirt", category: "clothing", price: 599, image: "https://m.media-amazon.com/images/I/518gS92fNJL._AC_UL480_FMwebp_QL65_.jpg" },
+            { id: 7, name: "Smartphone", category: "electronics", price: 12999, image: "https://m.media-amazon.com/images/I/61UqPjhVI3L._AC_UY327_FMwebp_QL65_.jpg" },
+            { id: 8, name: "Watch", category: "accessories", price: 2999, image: "https://m.media-amazon.com/images/I/71Vx928Yx2L._AC_UL480_FMwebp_QL65_.jpg" },
+            { id: 9, name: "Shirts", category: "clothing", price: 1599, image: "https://m.media-amazon.com/images/I/61rR0es4v3L._AC_UL480_FMwebp_QL65_.jpg" }
+        ];
+        
+        let cart = [];
+        const productsContainer = document.getElementById("products-container");
+        const cartItems = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+        const cartCount = document.getElementById("cart-count");
 
-let cart = [];
+        function renderProducts(filter = "all") {
+            productsContainer.innerHTML = "";
+            const filteredProducts = filter === "all" ? products : products.filter(p => p.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("product-card");
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>₹${product.price}</p>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+        }
 
-const productsContainer = document.getElementById("products-container");
-const categoryFilter = document.getElementById("category-filter");
-const cartButton = document.getElementById("cart-button");
-const cartModal = document.getElementById("cart-modal");
-const cartItems = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-const cartCount = document.getElementById("cart-count");
-const closeCartButton = document.getElementById("close-cart");
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCart();
+        }
 
+        function updateCart() {
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${item.name} - ₹${item.price} 
+                    <button class="delete-btn" onclick="removeFromCart(${index})">❌</button>`;
+                cartItems.appendChild(listItem);
+            });
+            cartTotal.textContent = total.toFixed(2);
+            cartCount.textContent = cart.length;
+        }
 
-function renderProducts(filter = "all") {
-    productsContainer.innerHTML = "";
-    const filteredProducts = filter === "all" ? products : products.filter(p => p.category === filter);
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
 
-    filteredProducts.forEach(product => {
-        const productCard = document.createElement("div");
-        productCard.classList.add("product-card");
-        productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>$${product.price.toFixed(2)}</p>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
-        `;
-        productsContainer.appendChild(productCard);
-    });
-}
+        // Cart Modal Open/Close Functionality
+        const cartButton = document.getElementById("cart-button");
+        const cartModal = document.getElementById("cart-modal");
+        const closeCartButton = document.getElementById("close-cart");
 
+        cartButton.addEventListener("click", () => {
+            cartModal.classList.remove("hidden");
+        });
 
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    cart.push(product);
-    updateCart();
-}
+        closeCartButton.addEventListener("click", () => {
+            cartModal.classList.add("hidden");
+        });
 
-
-function updateCart() {
-    cartItems.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        total += item.price;
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `${item.name} - $${item.price.toFixed(2)} 
-            <button onclick="removeFromCart(${index})" style="margin-left:10px; background: red;">❌</button>`;
-        cartItems.appendChild(listItem);
-    });
-
-    cartTotal.textContent = total.toFixed(2);
-    cartCount.textContent = cart.length;
-}
-
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
-
-categoryFilter.addEventListener("change", (e) => renderProducts(e.target.value));
-cartButton.addEventListener("click", () => cartModal.classList.remove("hidden"));
-closeCartButton.addEventListener("click", () => cartModal.classList.add("hidden"));
-
-
-renderProducts();
-
+        document.getElementById("category-filter").addEventListener("change", (e) => renderProducts(e.target.value));
+        renderProducts();
     </script>
 </body>
 </html>
